@@ -15,10 +15,31 @@ int		count_chars(char *ligne)
 	return (charcount);
 }
 
-char *hide(char **repl, char *hideme)
+int *hide(char **repl, char *hideme, int size)
 {
+	int i, j;
+	int *ret;
 
+	ret = malloc(sizeof(int) * size);
+	i = 0;
+	j = 0;
+	while (j < size && hideme[i])
+	{
+		ret[i] = (hideme[i] + ft_atoi(repl[j]));
+		printf("%d %s\n", ret[i], repl[j]);
+		i++;
+		j++;
+	}
+	while (j < size)
+	{
+		ret[i] = ft_atoi(repl[j]);
+		printf("%d\n", ret[i]);
+		i++;
+		j++;
+	}
+	return (ret);
 }
+
 char	**parse(int nb, char *ligne)
 {
 	char **repl;
@@ -35,7 +56,6 @@ char	**parse(int nb, char *ligne)
 	{
 		while (ft_isdigit(ligne[++i]))
 			repl[kze][j++]=ligne[i];
-		//printf("%s \n", repl[kze]);
 		kze++;
 		j = 0;
 		i++;
@@ -60,5 +80,5 @@ void		stega(char *hideme)
 	printf("max :: %d ligne :: %s\n", max, ligne);
 	size = count_chars(ligne);
 	printf("%d\n", size);
-	hide(parse(size, ligne), hideme);
+	hide(parse(size, ligne), hideme , size);
 }

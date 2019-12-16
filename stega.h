@@ -12,7 +12,7 @@ int				ft_isdigit(int c);
 int				count_chars(char *ligne);
 void			stega(char *hideme);
 char			**parse(int nb, char *ligne);
-char			*hide(char **repl, char *hideme);
+int				*hide(char **repl, char *hideme, int nb);
 long long		ft_atoi(const char *str);
 
 #endif
