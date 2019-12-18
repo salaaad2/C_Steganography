@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <stega.h>
 
 int		ft_checkline(char *str)
 {

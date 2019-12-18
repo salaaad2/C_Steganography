@@ -1,10 +1,8 @@
-#include "stega.h"
-#include "get_next_line.h"
+#include <stega.h>
 
 int		count_chars(char *ligne)
 {
 	int i;
-	int j;
 	int charcount;
 
 	i = -1;
@@ -69,8 +67,8 @@ void		stega(char *hideme)
 	char *ligne;
 
 	i = -1;
-	fd = open("barbara.ascii.pgm", O_RDONLY);
-	out = open("asd.ascii.pgm",  O_RDWR);
+	fd =  open("img/barbara.ascii.pgm", O_RDONLY);
+	out = open("img/asd.ascii.pgm",  O_RDWR);
 	while (++i < 4)
 	{
 		get_next_line(fd, &ligne);
