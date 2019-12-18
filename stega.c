@@ -70,7 +70,7 @@ void		stega(char *hideme)
 
 	i = -1;
 	fd = open("barbara.ascii.pgm", O_RDONLY);
-	out = open("asd",  O_RDWR);
+	out = open("asd.ascii.pgm",  O_RDWR);
 	while (++i < 4)
 	{
 		get_next_line(fd, &ligne);
