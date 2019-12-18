@@ -12,7 +12,7 @@ int		count_chars(char *ligne)
 	while (ligne[++i])
 		if (ligne[i] == ' ' && ligne[i + 1] == ' ')
 			charcount++;
-	return (charcount);
+	return (charcount + 1);
 }
 
 int *hide(char **repl, char *hideme, int size)
@@ -25,15 +25,13 @@ int *hide(char **repl, char *hideme, int size)
 	j = 0;
 	while (j < size && hideme[i])
 	{
-		ret[i] = (hideme[i] + ft_atoi(repl[j]));
-		printf("%d %s\n", ret[i], repl[j]);
+		ret[i] = (hideme[i] + atoi(repl[j]));
 		i++;
 		j++;
 	}
 	while (j < size)
 	{
-		ret[i] = ft_atoi(repl[j]);
-		printf("%d\n", ret[i]);
+		ret[i] = atoi(repl[j]);
 		i++;
 		j++;
 	}
@@ -54,7 +52,7 @@ char	**parse(int nb, char *ligne)
 	i = -1;
 	while (kze <= nb)
 	{
-		while (ft_isdigit(ligne[++i]))
+		while (isdigit(ligne[++i]))
 			repl[kze][j++]=ligne[i];
 		kze++;
 		j = 0;
@@ -65,20 +63,22 @@ char	**parse(int nb, char *ligne)
 
 void		stega(char *hideme)
 {
-	int fd;
-	int i;
-	int max;
+	int fd, out, i;
+	int *j;
 	int size;
 	char *ligne;
 
 	i = -1;
-	fd = open("barbara.ascii.pgm", 0);
+	fd = open("barbara.ascii.pgm", O_RDONLY);
+	out = open("asd",  O_RDWR);
 	while (++i < 4)
+	{
 		get_next_line(fd, &ligne);
-	max = ft_atoi(ligne);
+		write(out, ligne, strlen(ligne));
+		write(out, "\n", 1);
+	}
 	get_next_line(fd, &ligne);
-	printf("max :: %d ligne :: %s\n", max, ligne);
 	size = count_chars(ligne);
-	printf("%d\n", size);
-	hide(parse(size, ligne), hideme , size);
+	j = hide(parse(size, ligne), hideme , size);
+	fill_it(fd, out, j, size);
 }
