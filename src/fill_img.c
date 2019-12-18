@@ -1,4 +1,4 @@
-#include "stega.h"
+#include <stega.h>
 
 void	fill_it(int fd, int out, int *tab, int size)
 {

@@ -1,4 +1,4 @@
-#include "stega.h"
+#include <stega.h>
 
 int		main(int ac, char **av)
 {

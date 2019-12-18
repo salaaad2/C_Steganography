@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "stega.h"
+#include <stega.h>
 
 static char	*ft_revert(char *str)
 {

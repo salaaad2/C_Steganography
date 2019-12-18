@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <stega.h>
 
 char	*ft_nstr(unsigned int s)
 {
