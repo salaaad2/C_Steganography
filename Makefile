@@ -20,16 +20,17 @@ SRCS 		+= ${SRCS_DIR}ft_itoa.c
 SRCS 		+= ${SRCS_DIR}get_next_line.c
 SRCS 		+= ${SRCS_DIR}get_next_line_utils.c
 SRCS 		+= ${SRCS_DIR}stega.c
+SRCS 		+= ${SRCS_DIR}decode.c
 SRCS 		+= ${SRCS_DIR}main.c
 #==============================================================================#
 #-------------------------------- Compiler ------------------------------------#
 #==============================================================================#
-CC			= gcc
+CC			= clang
 CFLAGS		= -Wall
 CFLAGS		+= -Wextra
 CFLAGS		+= -Werror
-#CFLAGS		+= ${DEBUG}
-#CFLAGS		+= ${FSANITIZE}
+CFLAGS		+= ${DEBUG}
+CFLAGS		+= ${FSANITIZE}
 #------------------------------------------------------------------------------#
 DEBUG		= -g3
 FSANITIZE	= -fsanitize=address
