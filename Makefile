@@ -26,11 +26,11 @@ SRCS 		+= ${SRCS_DIR}main.c
 #-------------------------------- Compiler ------------------------------------#
 #==============================================================================#
 CC			= clang
-CFLAGS		= -Wall
-CFLAGS		+= -Wextra
-CFLAGS		+= -Werror
-CFLAGS		+= ${DEBUG}
-CFLAGS		+= ${FSANITIZE}
+#CFLAGS		= -Wall
+#CFLAGS		+= -Wextra
+#CFLAGS		+= -Werror
+#CFLAGS		+= ${DEBUG}
+#CFLAGS		+= ${FSANITIZE}
 #------------------------------------------------------------------------------#
 DEBUG		= -g3
 FSANITIZE	= -fsanitize=address

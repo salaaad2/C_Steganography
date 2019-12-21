@@ -2,15 +2,21 @@
 
 void	decode(char *f_search)
 {
-	int fd, f2;
+	int i;
+FILE  *fd, *f2; 
+	size_t len, len2;
 	char *line_s;
-	//char *line_d;
+	char *line_d;
 
-	fd = open(f_search, 0);
-	f2 = open("img/barbara.ascii.pgm",  0);
-	while (!strcmp(line_s, "AsD"))
+	i = 0;
+	fd = fopen(f_search, "r");
+	f2 = fopen("img/barbara.ascii.pgm", "r");
+	while (i < 5)
 	{
-		get_next_line(fd, &line_s);
+		getline(&line_s, &len, fd);
+		printf("%dasd :  line :: %s\n",i, line_s);
+		i++;
 	}
-	printf("%s\n", line_s);
+	printf("4th line :: %s\n", line_s);
+	
 }
