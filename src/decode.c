@@ -1,6 +1,6 @@
 #include "../inc/stega.h"
 
-void	read_dc(char *f_search)
+void	read_dc(char *f_source, char *f_target)
 {
 	int i;
 	FILE  *fp, *f2; 
@@ -11,20 +11,20 @@ void	read_dc(char *f_search)
 	i = 0;
 	len = 0;
 	len2 = 0;
-	fp = fopen(f_search, "r");
-	f2 = fopen("img/barbara.ascii.pgm", "r");
+	fp = fopen(f_source, "r");
+	f2 = fopen(f_target, "r");
 	while (i < 5)
 	{
 		getline(&line_s, &len, fp);
 		getline(&line_t, &len2, f2);
-		printf("target line :: %ssource line :: %s", line_t, line_s);
 		i++;
 	}
+	puts("READ OK");
 	get_int_tab(line_s, line_t);
 }
 
 
-static void	get_int_tab(char *line_s, char *line_t)
+void	get_int_tab(char *line_s, char *line_t)
 {
 	int i;
 	char car_t;
@@ -37,7 +37,8 @@ static void	get_int_tab(char *line_s, char *line_t)
 	{
 		car_t = atoi(line_t + i);
 		car_s = atoi(line_s + i);
-		printf("%c\n", car_s - car_t);
+		printf("%c", car_s - car_t);
 		i += 3;
 	}
+	write(1, "\n", 1);
 }

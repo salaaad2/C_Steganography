@@ -23,7 +23,7 @@ int				ft_checkline(char *str);
 char			*ft_itoa(long long n);
 int				count_chars(char *ligne);
 void			stega(char *hideme);
-void			read_dc(char *f_search);
+void			read_dc(char *f_source, char *f_target);
 void			fill_it(int fd, int out, int *tab, int size);
 void			fill_end(int fd, int out);
 char			**parse(int nb, char *ligne);
