@@ -8,18 +8,18 @@ void	read_dc(char *f_source, char *f_target)
 	char *line_s;
 	char *line_t;
 
-	i = 0;
+	i = -1;
 	len = 0;
 	len2 = 0;
 	fp = fopen(f_source, "r");
 	f2 = fopen(f_target, "r");
-	while (i < 5)
+	while (i < 4)
 	{
 		getline(&line_s, &len, fp);
 		getline(&line_t, &len2, f2);
 		i++;
 	}
-	puts("READ OK");
+	puts("\nREAD OK");
 	get_int_tab(line_s, line_t);
 }
 
@@ -33,11 +33,14 @@ void	get_int_tab(char *line_s, char *line_t)
 
 	ret = malloc(sizeof(int) * 28);
 	i = 0;
+	car_t = 0;
+	car_s = 1;
 	while (car_t != car_s && line_s[i])
 	{
 		car_t = atoi(line_t + i);
 		car_s = atoi(line_s + i);
-		printf("%c", car_s - car_t);
+		if (isascii(car_s - car_t))
+			printf("%c", car_s - car_t);
 		i += 3;
 	}
 	write(1, "\n", 1);
